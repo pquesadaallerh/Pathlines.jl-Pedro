@@ -1,6 +1,6 @@
-using WaterLily,CUDA,Pathlines
+using WaterLily,Pathlines
 import GLMakie
-function make_particleplot(;N=Int(1e4),life=UInt(255),name="particleplot.mp4",U=1,L=64,T=Float32,mem=CUDA.CuArray)
+function make_particleplot(;N=Int(1e4),life=UInt(255),name="particleplot.mp4",U=1,L=64,T=Float32,mem=Array)
     function uλ(i,xy)
         x,y = @. (xy-1.5)*π/L           # scaled coordinates
         i==1 && return -U*sin(x)*cos(y) # u_x
@@ -26,3 +26,6 @@ function make_particleplot(;N=Int(1e4),life=UInt(255),name="particleplot.mp4",U=
         notify!(v,p,sim.flow.Δt[end-1])
     end
 end
+
+
+make_particleplot()

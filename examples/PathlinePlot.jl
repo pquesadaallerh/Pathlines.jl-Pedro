@@ -33,3 +33,5 @@ function make_pathplot(L=64,T=Float32, U=1,mem=Array)
         end
     end
 end
+
+make_pathplot()
